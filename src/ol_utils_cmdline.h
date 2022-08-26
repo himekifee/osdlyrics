@@ -42,7 +42,7 @@
  * 
  * @return If execute failed or the exit code of command is not 0, return FALSE
  */
-gboolean ol_cmd_get_string (const char *cmd, char **retval);
+gboolean ol_cmd_get_string(const char *cmd, char **retval);
 
 /** 
  * @brief Execute a command and get its output as an integer
@@ -53,7 +53,7 @@ gboolean ol_cmd_get_string (const char *cmd, char **retval);
  * 
  * @return If execute failed or the exit code of command is not 0, return FALSE
  */
-gboolean ol_cmd_get_int (const char *cmd, int *retval);
+gboolean ol_cmd_get_int(const char *cmd, int *retval);
 
 /** 
  * @brief Execute a command and get its output as a string
@@ -62,6 +62,6 @@ gboolean ol_cmd_get_int (const char *cmd, int *retval);
  * 
  * @return If execute failed or the exit code of command is not 0, return FALSE
  */
-gboolean ol_cmd_exec (const char *cmd);
+gboolean ol_cmd_exec(const char *cmd);
 
 #endif /* _OL_UTILS_CMDLINE_H_ */

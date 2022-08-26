@@ -20,48 +20,45 @@
 #ifndef _OL_OSD_TOOLBAR_H_
 #define _OL_OSD_TOOLBAR_H_
 
+#include "ol_player.h"
+#include <gtk/gtkalignment.h>
 #include <gtk/gtkbutton.h>
 #include <gtk/gtkhbox.h>
-#include <gtk/gtkvbox.h>
 #include <gtk/gtkicontheme.h>
-#include <gtk/gtkalignment.h>
 #include <gtk/gtktypeutils.h>
-#include "ol_player.h"
+#include <gtk/gtkvbox.h>
 
-#define OL_OSD_TOOLBAR(obj)                  G_TYPE_CHECK_INSTANCE_CAST (obj, ol_osd_toolbar_get_type (), OlOsdToolbar)
-#define OL_OSD_TOOLBAR_CLASS(klass)          GTK_CHECK_CLASS_CAST (klass, ol_osd_toolbar_get_type (), OlOsdToolbarClass)
-#define OL_IS_OSD_TOOLBAR(obj)               G_TYPE_CHECK_INSTANCE_TYPE (obj, ol_osd_toolbar_get_type ())
-#define OL_OSD_TOOLBAR_GET_CLASS(obj)        (G_TYPE_INSTANCE_GET_CLASS ((obj), ol_osd_toolbar_get_type (), OlOsdToolbarClass))
+#define OL_OSD_TOOLBAR(obj) G_TYPE_CHECK_INSTANCE_CAST(obj, ol_osd_toolbar_get_type(), OlOsdToolbar)
+#define OL_OSD_TOOLBAR_CLASS(klass) GTK_CHECK_CLASS_CAST(klass, ol_osd_toolbar_get_type(), OlOsdToolbarClass)
+#define OL_IS_OSD_TOOLBAR(obj) G_TYPE_CHECK_INSTANCE_TYPE(obj, ol_osd_toolbar_get_type())
+#define OL_OSD_TOOLBAR_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS((obj), ol_osd_toolbar_get_type(), OlOsdToolbarClass))
 
 typedef struct _OlOsdToolbar OlOsdToolbar;
 typedef struct _OlOsdToolbarPrivate OlOsdToolbarPrivate;
 typedef struct _OlOsdToolbarClass OlOsdToolbarClass;
 
-struct _OlOsdToolbar
-{
-  GtkAlignment alignment;
-  GtkHBox *center_box;
-  GtkButton *play_button;
-  GtkButton *pause_button;
-  GtkButton *prev_button;
-  GtkButton *next_button;
-  GtkButton *stop_button;
-  gpointer priv; /** Private data pointer */
+struct _OlOsdToolbar {
+    GtkAlignment alignment;
+    GtkHBox *center_box;
+    GtkButton *play_button;
+    GtkButton *pause_button;
+    GtkButton *prev_button;
+    GtkButton *next_button;
+    GtkButton *stop_button;
+    gpointer priv; /** Private data pointer */
 };
 
-struct _OlOsdToolbarPrivate
-{
+struct _OlOsdToolbarPrivate {
 };
 
-struct _OlOsdToolbarClass
-{
-  GtkAlignmentClass parent_class;
+struct _OlOsdToolbarClass {
+    GtkAlignmentClass parent_class;
 };
 
-GType ol_osd_toolbar_get_type (void);
+GType ol_osd_toolbar_get_type(void);
 
-GtkWidget *ol_osd_toolbar_new (void);
-void ol_osd_toolbar_set_player (OlOsdToolbar *toolbar, OlPlayer *player);
-void ol_osd_toolbar_set_status (OlOsdToolbar *toolbar, enum OlPlayerStatus status);
+GtkWidget *ol_osd_toolbar_new(void);
+void ol_osd_toolbar_set_player(OlOsdToolbar *toolbar, OlPlayer *player);
+void ol_osd_toolbar_set_status(OlOsdToolbar *toolbar, enum OlPlayerStatus status);
 
 #endif /* _OL_OSD_TOOLBAR_H_ */

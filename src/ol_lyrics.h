@@ -20,50 +20,48 @@
 #ifndef __OL_LYRICS_H__
 #define __OL_LYRICS_H__
 
-#include <gio/gio.h>
 #include "ol_metadata.h"
+#include <gio/gio.h>
 
 G_BEGIN_DECLS
 
-#define OL_TYPE_LYRICS                          \
-  (ol_lyrics_get_type ())
-#define OL_LYRICS(obj)                                  \
-  (G_TYPE_CHECK_INSTANCE_CAST (obj, OL_TYPE_LYRICS, OlLyrics))
-#define OL_LYRICS_CLASS(klass)                                        \
-  (G_TYPE_CHECK_CLASS_CAST (klass, OL_TYPE_LYRICS, OlLyricsClass))
-#define OL_IS_LYRICS(obj)                       \
-  (G_TYPE_CHECK_INSTANCE_TYPE (obj, OL_TYPE_LYRICS))
-#define OL_IS_LYRICS_CLASS(klass)                       \
-  (G_TYPE_CHECK_CLASS_TYPE (klass, OL_TYPE_LYRICS))
-#define OL_LYRICS_GET_CLASS(obj)                                        \
-  (G_TYPE_INSTANCE_GET_CLASS ((obj), OL_TYPE_LYRICS, OlLyricsClass))
+#define OL_TYPE_LYRICS \
+    (ol_lyrics_get_type())
+#define OL_LYRICS(obj) \
+    (G_TYPE_CHECK_INSTANCE_CAST(obj, OL_TYPE_LYRICS, OlLyrics))
+#define OL_LYRICS_CLASS(klass) \
+    (G_TYPE_CHECK_CLASS_CAST(klass, OL_TYPE_LYRICS, OlLyricsClass))
+#define OL_IS_LYRICS(obj) \
+    (G_TYPE_CHECK_INSTANCE_TYPE(obj, OL_TYPE_LYRICS))
+#define OL_IS_LYRICS_CLASS(klass) \
+    (G_TYPE_CHECK_CLASS_TYPE(klass, OL_TYPE_LYRICS))
+#define OL_LYRICS_GET_CLASS(obj) \
+    (G_TYPE_INSTANCE_GET_CLASS((obj), OL_TYPE_LYRICS, OlLyricsClass))
 
 typedef struct _OlLyrics OlLyrics;
-struct _OlLyrics
-{
-  GDBusProxy parent;
-  gpointer priv;
+struct _OlLyrics {
+    GDBusProxy parent;
+    gpointer priv;
 };
 
 typedef struct _OlLyricsClass OlLyricsClass;
-struct _OlLyricsClass
-{
-  GDBusProxyClass parent_class;
+struct _OlLyricsClass {
+    GDBusProxyClass parent_class;
 };
 
 #include "ol_lrc.h"
 
-GType ol_lyrics_get_type (void) G_GNUC_CONST;
+GType ol_lyrics_get_type(void) G_GNUC_CONST;
 
-OlLyrics *ol_lyrics_new (GError **error);
+OlLyrics *ol_lyrics_new(GError **error);
 
-void ol_lyrics_proxy_new_async (GCancellable *cancellable,
-                                GAsyncReadyCallback callback,
-                                gpointer user_data,
-                                GError **error);
+void ol_lyrics_proxy_new_async(GCancellable *cancellable,
+                               GAsyncReadyCallback callback,
+                               gpointer user_data,
+                               GError **error);
 
-OlLyrics *ol_lyrics_proxy_new_finish (GAsyncResult *res,
-                                      GError **error);
+OlLyrics *ol_lyrics_proxy_new_finish(GAsyncResult *res,
+                                     GError **error);
 
 /* D-Bus method calls: */
 
@@ -76,7 +74,7 @@ OlLyrics *ol_lyrics_proxy_new_finish (GAsyncResult *res,
  *         representing the lyrics. You should use g_object_unref() to free
  *         the returned #OlLrc object.
  */
-OlLrc *ol_lyrics_get_current_lyrics (OlLyrics *proxy);
+OlLrc *ol_lyrics_get_current_lyrics(OlLyrics *proxy);
 
 /**
  * Gets the lyrics assigned to the given metadata
@@ -88,8 +86,8 @@ OlLrc *ol_lyrics_get_current_lyrics (OlLyrics *proxy);
  *         representing the lyrics. You should use g_object_unref() to free
  *         the returned #OlLrc object.
  */
-OlLrc *ol_lyrics_get_lyrics (OlLyrics *proxy,
-                             OlMetadata *metadata);
+OlLrc *ol_lyrics_get_lyrics(OlLyrics *proxy,
+                            OlMetadata *metadata);
 
 /**
  * Gets the content of the LRC file assigned to the specified metadata in
@@ -106,10 +104,10 @@ OlLrc *ol_lyrics_get_lyrics (OlLyrics *proxy,
  *         assigned to not show any lyrics, #TRUE will be returned and #content will
  *         pointed to an empty string rather than #NULL.
  */
-gboolean ol_lyrics_get_raw_lyrics (OlLyrics *proxy,
-                                   OlMetadata *metadata,
-                                   char **uri,
-                                   char **content);
+gboolean ol_lyrics_get_raw_lyrics(OlLyrics *proxy,
+                                  OlMetadata *metadata,
+                                  char **uri,
+                                  char **content);
 
 /**
  * Gets the content of the LRC file assigned to the current track in
@@ -125,9 +123,9 @@ gboolean ol_lyrics_get_raw_lyrics (OlLyrics *proxy,
  *         assigned to not show any lyrics, #TRUE will be returned and #content will
  *         pointed to an empty string rather than #NULL.
  */
-gboolean ol_lyrics_get_current_raw_lyrics (OlLyrics *proxy,
-                                           char **uri,
-                                           char **content);
+gboolean ol_lyrics_get_current_raw_lyrics(OlLyrics *proxy,
+                                          char **uri,
+                                          char **content);
 
 /**
  * Sets the content of LRC file for given metadata.
@@ -141,10 +139,10 @@ gboolean ol_lyrics_get_current_raw_lyrics (OlLyrics *proxy,
  *         If failed, #NULL will be returned and the error will be set. The returned
  *         URI should be freed with g_free().
  */
-gchar *ol_lyrics_set_content (OlLyrics *proxy,
-                              OlMetadata *metadata,
-                              const char *content,
-                              GError **error);
+gchar *ol_lyrics_set_content(OlLyrics *proxy,
+                             OlMetadata *metadata,
+                             const char *content,
+                             GError **error);
 
 /**
  * Assigns an URI to given metadata.
@@ -159,10 +157,10 @@ gchar *ol_lyrics_set_content (OlLyrics *proxy,
  * @return If success, return #TRUE. Otherwise return #FALSE and #error will be
  *         set.
  */
-gboolean ol_lyrics_assign (OlLyrics *proxy,
-                           OlMetadata *metadata,
-                           const char *uri,
-                           GError **error);
+gboolean ol_lyrics_assign(OlLyrics *proxy,
+                          OlMetadata *metadata,
+                          const char *uri,
+                          GError **error);
 
 /**
  * Sets the offset of a given LRC file.
@@ -174,9 +172,9 @@ gboolean ol_lyrics_assign (OlLyrics *proxy,
  * @return #TRUE if success. Otherwise return #FALSE and #error will be
  *         set.
  */
-gboolean ol_lyrics_set_offset (OlLyrics *proxy,
-                               const char *uri,
-                               gint offset);
+gboolean ol_lyrics_set_offset(OlLyrics *proxy,
+                              const char *uri,
+                              gint offset);
 G_END_DECLS
 
 #endif /* __OL_LYRICS_H__ */

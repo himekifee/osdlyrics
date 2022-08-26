@@ -36,10 +36,10 @@
  * 
  * @return If succeeded, return TRUE
  */
-gboolean ol_dcop_get_string (const gchar *cmd, gchar **returnval);
+gboolean ol_dcop_get_string(const gchar *cmd, gchar **returnval);
 
-gboolean ol_dcop_get_uint (const gchar *cmd, guint *returnval);
+gboolean ol_dcop_get_uint(const gchar *cmd, guint *returnval);
 
-gboolean ol_dcop_get_boolean (const gchar *cmd, gboolean *returnval);
+gboolean ol_dcop_get_boolean(const gchar *cmd, gboolean *returnval);
 
 #endif /* _OL_UTILS_DCOP_H_ */

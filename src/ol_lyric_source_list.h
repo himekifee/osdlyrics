@@ -20,11 +20,11 @@
 #ifndef _OL_LYRIC_SOURCE_LIST_H_
 #define _OL_LYRIC_SOURCE_LIST_H_
 
-#include <gtk/gtktreeview.h>
-#include <gtk/gtkcellrenderertoggle.h>
 #include <gtk/gtkcellrenderertext.h>
+#include <gtk/gtkcellrenderertoggle.h>
+#include <gtk/gtktreeview.h>
 
-void ol_lyric_source_list_init (GtkTreeView *list);
+void ol_lyric_source_list_init(GtkTreeView *list);
 
 /**
  * Sets source list with source info
@@ -33,8 +33,8 @@ void ol_lyric_source_list_init (GtkTreeView *list);
  * @param list
  * @param info_list A list of OlLyricSourceInfo*.
  */
-void ol_lyric_source_list_set_info_list (GtkTreeView *list,
-                                         GList *info_list);
+void ol_lyric_source_list_set_info_list(GtkTreeView *list,
+                                        GList *info_list);
 /**
  * Gets a list of id of enabled sources
  *
@@ -46,6 +46,6 @@ void ol_lyric_source_list_set_info_list (GtkTreeView *list,
  * @return A list of gchar*. The elements in the list are id of enabled
  * sources. You must free the elemenets with g_free(), and free the list.
  */
-GList *ol_lyric_source_list_get_active_id_list (GtkTreeView *list);
+GList *ol_lyric_source_list_get_active_id_list(GtkTreeView *list);
 
 #endif /* _OL_LYRIC_SOURCE_LIST_H_ */

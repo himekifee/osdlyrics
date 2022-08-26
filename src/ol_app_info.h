@@ -20,40 +20,39 @@
 #ifndef _OL_APP_INFO_H_
 #define _OL_APP_INFO_H_
 
-#include <glib-object.h>
 #include <gio/gio.h>
+#include <glib-object.h>
 
 G_BEGIN_DECLS
 
-#define OL_TYPE_APP_INFO         (ol_app_info_get_type ())
-#define OL_APP_INFO(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), OL_TYPE_APP_INFO, OlAppInfo))
-#define OL_APP_INFO_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), OL_TYPE_APP_INFO, OlAppInfoClass))
-#define OL_IS_APP_INFO(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), OL_TYPE_APP_INFO))
-#define OL_IS_APP_INFO_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), OL_TYPE_APP_INFO))
-#define OL_APP_INFO_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), OL_TYPE_APP_INFO, OlAppInfoClass))
+#define OL_TYPE_APP_INFO (ol_app_info_get_type())
+#define OL_APP_INFO(o) (G_TYPE_CHECK_INSTANCE_CAST((o), OL_TYPE_APP_INFO, OlAppInfo))
+#define OL_APP_INFO_CLASS(k) (G_TYPE_CHECK_CLASS_CAST((k), OL_TYPE_APP_INFO, OlAppInfoClass))
+#define OL_IS_APP_INFO(o) (G_TYPE_CHECK_INSTANCE_TYPE((o), OL_TYPE_APP_INFO))
+#define OL_IS_APP_INFO_CLASS(k) (G_TYPE_CHECK_CLASS_TYPE((k), OL_TYPE_APP_INFO))
+#define OL_APP_INFO_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS((o), OL_TYPE_APP_INFO, OlAppInfoClass))
 
 enum OlAppInfoFlags {
-  OL_APP_INFO_FLAGS_NONE          = 0,
-  /// Find the first app info with prefix of given commandline.
-  OL_APP_INFO_WITH_PREFIX         = 1 << 0,
-  /// The first argument is the real program name. Uses in the command
-  /// with sudo/gksu
-  OL_APP_INFO_SECOND_IS_EXEC      = 1 << 1,
-  /// Look up desktop file for application name.
-  OL_APP_INFO_USE_DESKTOP_NAME    = 1 << 2,
-  /// Look up desktop file for application icon.
-  OL_APP_INFO_USE_DESKTOP_ICON    = 1 << 3,
-  /// Look up desktop file for application command line.
-  OL_APP_INFO_USE_DESKTOP_CMDLINE = 1 << 4,
-  /// Use the information in desktop file rather than the parameters, if available.
-  OL_APP_INFO_PREFER_DESKTOP_FILE = OL_APP_INFO_USE_DESKTOP_NAME |
-  OL_APP_INFO_USE_DESKTOP_ICON | OL_APP_INFO_USE_DESKTOP_CMDLINE,
+    OL_APP_INFO_FLAGS_NONE = 0,
+    /// Find the first app info with prefix of given commandline.
+    OL_APP_INFO_WITH_PREFIX = 1 << 0,
+    /// The first argument is the real program name. Uses in the command
+    /// with sudo/gksu
+    OL_APP_INFO_SECOND_IS_EXEC = 1 << 1,
+    /// Look up desktop file for application name.
+    OL_APP_INFO_USE_DESKTOP_NAME = 1 << 2,
+    /// Look up desktop file for application icon.
+    OL_APP_INFO_USE_DESKTOP_ICON = 1 << 3,
+    /// Look up desktop file for application command line.
+    OL_APP_INFO_USE_DESKTOP_CMDLINE = 1 << 4,
+    /// Use the information in desktop file rather than the parameters, if available.
+    OL_APP_INFO_PREFER_DESKTOP_FILE = OL_APP_INFO_USE_DESKTOP_NAME |
+                                      OL_APP_INFO_USE_DESKTOP_ICON | OL_APP_INFO_USE_DESKTOP_CMDLINE,
 };
 
 typedef struct _OlAppInfo OlAppInfo;
-typedef struct _OlAppInfoClass
-{
-  GObjectClass parent_class;
+typedef struct _OlAppInfoClass {
+    GObjectClass parent_class;
 } OlAppInfoClass;
 
 /**
@@ -83,14 +82,13 @@ typedef struct _OlAppInfoClass
  * @return If failed, return #NULL, and the #error will be set. Otherwise
  * return the GAppInfo instance.
  */
-OlAppInfo *ol_app_info_new (const char *cmdline,
-                            const char *name,
-                            const char *icon_name,
-                            enum OlAppInfoFlags flags,
-                            GError **error);
+OlAppInfo *ol_app_info_new(const char *cmdline,
+                           const char *name,
+                           const char *icon_name,
+                           enum OlAppInfoFlags flags,
+                           GError **error);
 
 G_END_DECLS
 
 #endif /* _OL_APP_INFO_H_ */
 #include <glib.h>
-

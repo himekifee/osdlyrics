@@ -20,9 +20,9 @@
 #ifndef _OL_PATH_PATTERN_H_
 #define _OL_PATH_PATTERN_H_
 
-#include <string.h>
-#include <glib.h>
 #include "ol_metadata.h"
+#include <glib.h>
+#include <string.h>
 
 /** 
  * @brief Get full pathname of lyrics file according to the path pattern and file pattern
@@ -35,11 +35,11 @@
  *
  * @return The length of the pathname, of -1 if failed
  */
-int ol_path_get_lrc_pathname (const char *path_pattern,
-                              const char *file_pattern,
-                              OlMetadata *metadata,
-                              char *pathname,
-                              size_t len);
+int ol_path_get_lrc_pathname(const char *path_pattern,
+                             const char *file_pattern,
+                             OlMetadata *metadata,
+                             char *pathname,
+                             size_t len);
 
 /** 
  * @brief Expands the pattern to a file name according to the infomation of a music
@@ -57,10 +57,10 @@ int ol_path_get_lrc_pathname (const char *path_pattern,
  * 
  * @return The length of the expanded file name, or -1 if failed
  */
-int ol_path_expand_file_pattern (const char *pattern,
-                                 OlMetadata *metadata,
-                                 char *filename,
-                                 size_t len);
+int ol_path_expand_file_pattern(const char *pattern,
+                                OlMetadata *metadata,
+                                char *filename,
+                                size_t len);
 /** 
  * @brief Expands the pattern to a directory path according to the infomation of a music
  * The pattern can be one of the three forms:
@@ -74,13 +74,13 @@ int ol_path_expand_file_pattern (const char *pattern,
  * 
  * @return The length of the expanded file name, or -1 if failed
  */
-int ol_path_expand_path_pattern (const char *pattern,
-                                 OlMetadata *metadata,
-                                 char *filename,
-                                 size_t len);
+int ol_path_expand_path_pattern(const char *pattern,
+                                OlMetadata *metadata,
+                                char *filename,
+                                size_t len);
 
-typedef gboolean (*OlPathFunc) (const char *filename,
-                                gpointer userdata);
+typedef gboolean (*OlPathFunc)(const char *filename,
+                               gpointer userdata);
 
 /** 
  * @brief Invoke the given function on each lrc filename which fits the patterns and music info
@@ -93,11 +93,11 @@ typedef gboolean (*OlPathFunc) (const char *filename,
  * 
  * @return TRUE if the func returns TRUE.
  */
-gboolean ol_path_pattern_for_each (char **path_patterns,
-                                   char **name_patterns,
-                                   OlMetadata *metadata,
-                                   OlPathFunc func,
-                                   gpointer data);
+gboolean ol_path_pattern_for_each(char **path_patterns,
+                                  char **name_patterns,
+                                  OlMetadata *metadata,
+                                  OlPathFunc func,
+                                  gpointer data);
 
 
 #endif /* _OL_PATH_PATTERN_H_ */

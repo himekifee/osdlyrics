@@ -20,13 +20,13 @@
 #ifndef _OL_SCROLL_MODULE_H_
 #define _OL_SCROLL_MODULE_H_
 
-#include <gtk/gtkicontheme.h>
-#include <gtk/gtkmenu.h>
-#include <gtk/gtkmain.h>
 #include <gtk/gtkhbox.h>
+#include <gtk/gtkicontheme.h>
+#include <gtk/gtkmain.h>
+#include <gtk/gtkmenu.h>
 
 #include "ol_display_module.h"
 
-struct OlDisplayClass* ol_scroll_module_get_class ();
+struct OlDisplayClass *ol_scroll_module_get_class();
 
 #endif

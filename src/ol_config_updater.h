@@ -20,6 +20,6 @@
 #ifndef _OL_CONFIG_UPDATER_H_
 #define _OL_CONFIG_UPDATER_H_
 
-void ol_config_update (void);
+void ol_config_update(void);
 
 #endif /* _OL_CONFIG_UPDATER_H_ */

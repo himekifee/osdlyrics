@@ -20,9 +20,9 @@
 #ifndef _OL_SEARCH_DIALOG_H_
 #define _OL_SEARCH_DIALOG_H_
 
-#include <gtk/gtkwidget.h>
 #include <gtk/gtklabel.h>
+#include <gtk/gtkwidget.h>
 
-void ol_search_dialog_show ();
+void ol_search_dialog_show();
 
 #endif /* _OL_SEARCH_DIALOG_H_ */

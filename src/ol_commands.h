@@ -33,12 +33,12 @@
  * @brief switch lock/unlock status on OSD windows
  * 
  */
-void ol_osd_lock_unlock ();
+void ol_osd_lock_unlock();
 
 /** 
  * @brief switch show/hide OSD
  * 
  */
-void ol_osd_switch_display ();
+void ol_osd_switch_display();
 
 #endif /* _OL_COMMANDS_H_ */

@@ -27,10 +27,10 @@
 #ifndef _OL_KEYBINDING_H_
 #define _OL_KEYBINDING_H_
 
-#include <gtk/gtkaccelmap.h>
 #include <gtk/gtkaccelgroup.h>
+#include <gtk/gtkaccelmap.h>
 
-void ol_keybinding_init ();
-GtkAccelGroup* ol_keybinding_get_accel_group ();
+void ol_keybinding_init();
+GtkAccelGroup *ol_keybinding_get_accel_group();
 
 #endif /* _OL_KEYBINDING_H_ */

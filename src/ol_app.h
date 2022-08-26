@@ -20,14 +20,14 @@
 #ifndef _OL_APP_H_
 #define _OL_APP_H_
 
-#include <glib.h>
-#include "ol_player.h"
-#include "ol_lyrics.h"
-#include "ol_lyric_source.h"
 #include "ol_lrc.h"
+#include "ol_lyric_source.h"
+#include "ol_lyrics.h"
 #include "ol_metadata.h"
+#include "ol_player.h"
+#include <glib.h>
 
-gboolean ol_app_download_lyric (OlMetadata *metadata);
+gboolean ol_app_download_lyric(OlMetadata *metadata);
 
 struct OlPlayer;
 struct OlLrc;
@@ -37,24 +37,24 @@ struct OlLrc;
  * 
  * @return 
  */
-OlMetadata* ol_app_get_current_music (void);
+OlMetadata *ol_app_get_current_music(void);
 
-OlPlayer* ol_app_get_player (void);
+OlPlayer *ol_app_get_player(void);
 
-OlLyricSource *ol_app_get_lyric_source (void);
+OlLyricSource *ol_app_get_lyric_source(void);
 
-OlLyrics *ol_app_get_lyrics_proxy (void);
+OlLyrics *ol_app_get_lyrics_proxy(void);
 
-OlLrc *ol_app_get_current_lyric (void);
+OlLrc *ol_app_get_current_lyric(void);
 
-gboolean ol_app_assign_lrcfile (OlMetadata *info,
-                                const char *filepath,
-                                gboolean update);
+gboolean ol_app_assign_lrcfile(OlMetadata *info,
+                               const char *filepath,
+                               gboolean update);
 /** 
  * @brief Adjust the offset of lyric by offset_ms
  *
  * The offset of the lyric will be original offset + offset_ms
  * @param offset_ms Incremental value of offset, in milliseconds
  */
-void ol_app_adjust_lyric_offset (int offset_ms);
+void ol_app_adjust_lyric_offset(int offset_ms);
 #endif /* _OL_APP_H_ */

@@ -28,22 +28,21 @@
 
 G_BEGIN_DECLS
 
-typedef void (* OlBindkeyHandler) (char *keystring, gpointer user_data);
+typedef void (*OlBindkeyHandler)(char *keystring, gpointer user_data);
 
-void ol_keybinder_init   (void);
+void ol_keybinder_init(void);
 
-void ol_keybinder_bind   (const char           *keystring,
-                          OlBindkeyHandler  handler,
-                          gpointer              user_data);
+void ol_keybinder_bind(const char *keystring,
+                       OlBindkeyHandler handler,
+                       gpointer user_data);
 
-void ol_keybinder_unbind (const char           *keystring,
-                          OlBindkeyHandler  handler);
+void ol_keybinder_unbind(const char *keystring,
+                         OlBindkeyHandler handler);
 
-gboolean ol_keybinder_is_modifier (guint keycode);
+gboolean ol_keybinder_is_modifier(guint keycode);
 
-guint32 ol_keybinder_get_current_event_time (void);
+guint32 ol_keybinder_get_current_event_time(void);
 
 G_END_DECLS
 
 #endif /* __DO_KEY_BINDER_H__ */
-

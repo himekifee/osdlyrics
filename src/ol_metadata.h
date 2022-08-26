@@ -19,8 +19,8 @@
  */
 #ifndef _OL_METADATA_H_
 #define _OL_METADATA_H_
-#include <stdlib.h>
 #include <glib.h>
+#include <stdlib.h>
 
 /**
  * defines a music's infomation structure
@@ -28,7 +28,7 @@
 typedef struct _OlMetadata OlMetadata;
 struct _OlMetadata;
 
-OlMetadata *ol_metadata_new (void);
+OlMetadata *ol_metadata_new(void);
 
 /**
  * Create a metadata object from GVariant of MPRIS2 metadata dictionary
@@ -37,8 +37,8 @@ OlMetadata *ol_metadata_new (void);
  *
  * @return
  */
-OlMetadata *ol_metadata_new_from_variant (GVariant *variant);
-void ol_metadata_free (OlMetadata *metadata);
+OlMetadata *ol_metadata_new_from_variant(GVariant *variant);
+void ol_metadata_free(OlMetadata *metadata);
 
 /**
  * @brief Clears an OlMetadata
@@ -46,9 +46,9 @@ void ol_metadata_free (OlMetadata *metadata);
  *
  * @param metadata
  */
-void ol_metadata_clear (OlMetadata *metadata);
-void ol_metadata_copy (OlMetadata *dest, const OlMetadata *src);
-OlMetadata *ol_metadata_dup (const OlMetadata *src);
+void ol_metadata_clear(OlMetadata *metadata);
+void ol_metadata_copy(OlMetadata *dest, const OlMetadata *src);
+OlMetadata *ol_metadata_dup(const OlMetadata *src);
 
 /**
  * @brief Sets the value of music title
@@ -57,9 +57,9 @@ OlMetadata *ol_metadata_dup (const OlMetadata *src);
  * @param title The value of title. If not NULL, it will be copied
  *              inside the metadata
  */
-void ol_metadata_set_title (OlMetadata *metadata,
-                            const char *title);
-const char *ol_metadata_get_title (const OlMetadata *metadata);
+void ol_metadata_set_title(OlMetadata *metadata,
+                           const char *title);
+const char *ol_metadata_get_title(const OlMetadata *metadata);
 
 /**
  * @brief Sets the artist of music
@@ -68,9 +68,9 @@ const char *ol_metadata_get_title (const OlMetadata *metadata);
  * @param artist The value of artist. If not NULL, it will be copied
  *               inside the metadata
  */
-void ol_metadata_set_artist (OlMetadata *metadata,
-                             const char *artist);
-const char *ol_metadata_get_artist (const OlMetadata *metadata);
+void ol_metadata_set_artist(OlMetadata *metadata,
+                            const char *artist);
+const char *ol_metadata_get_artist(const OlMetadata *metadata);
 
 /**
  * @brief Sets the name of music album
@@ -79,15 +79,15 @@ const char *ol_metadata_get_artist (const OlMetadata *metadata);
  * @param album The name of album. If not NULL, it will be copied
  *              inside the metadata
  */
-void ol_metadata_set_album (OlMetadata *metadata,
-                            const char *album);
-const char *ol_metadata_get_album (const OlMetadata *metadata);
+void ol_metadata_set_album(OlMetadata *metadata,
+                           const char *album);
+const char *ol_metadata_get_album(const OlMetadata *metadata);
 
-void ol_metadata_set_track_number (OlMetadata *metadata,
-                                   int track_number);
-void ol_metadata_set_track_number_from_string (OlMetadata *metadata,
-                                               const char *track_number);
-int ol_metadata_get_track_number (const OlMetadata *metadata);
+void ol_metadata_set_track_number(OlMetadata *metadata,
+                                  int track_number);
+void ol_metadata_set_track_number_from_string(OlMetadata *metadata,
+                                              const char *track_number);
+int ol_metadata_get_track_number(const OlMetadata *metadata);
 
 /**
  * @brief Sets the location of music file
@@ -96,9 +96,9 @@ int ol_metadata_get_track_number (const OlMetadata *metadata);
  * @param uri The value of uri. If not NULL, it will be copied
  *            inside the metadata
  */
-void ol_metadata_set_uri (OlMetadata *metadata,
-                          const char *uri);
-const char *ol_metadata_get_uri (const OlMetadata *metadata);
+void ol_metadata_set_uri(OlMetadata *metadata,
+                         const char *uri);
+const char *ol_metadata_get_uri(const OlMetadata *metadata);
 
 /**
  * @brief Sets the location of the album art
@@ -108,8 +108,8 @@ const char *ol_metadata_get_uri (const OlMetadata *metadata);
  * @param metadata The metadata
  * @param art_uri The uri if the album art.
  */
-void ol_metadata_set_art (OlMetadata *metadata,
-                          const char *art_uri);
+void ol_metadata_set_art(OlMetadata *metadata,
+                         const char *art_uri);
 
 /**
  * @brief Gets the location of the album art
@@ -121,7 +121,7 @@ void ol_metadata_set_art (OlMetadata *metadata,
  *
  * @return The uri of the album art, or NULL if not exists.
  */
-const char *ol_metadata_get_art (const OlMetadata *metadata);
+const char *ol_metadata_get_art(const OlMetadata *metadata);
 
 /**
  * Sets the duration of the metadata.
@@ -129,8 +129,8 @@ const char *ol_metadata_get_art (const OlMetadata *metadata);
  * @param metadata
  * @param duration The duration in millisecond.
  */
-void ol_metadata_set_duration (OlMetadata *metadata,
-                               guint64 duration);
+void ol_metadata_set_duration(OlMetadata *metadata,
+                              guint64 duration);
 /**
  * Gets the duration of the track, in millisecond
  *
@@ -138,7 +138,7 @@ void ol_metadata_set_duration (OlMetadata *metadata,
  *
  * @return The duration of the track.
  */
-guint64 ol_metadata_get_duration (const OlMetadata *metadata);
+guint64 ol_metadata_get_duration(const OlMetadata *metadata);
 
 /**
  * @brief Check whether two Metadatas are equal
@@ -149,8 +149,8 @@ guint64 ol_metadata_get_duration (const OlMetadata *metadata);
  *
  * @return If lhs is equal to rhs, return 1. Otherwise return 0
  */
-int ol_metadata_equal (const OlMetadata *lhs,
-                       const OlMetadata *rhs);
+int ol_metadata_equal(const OlMetadata *lhs,
+                      const OlMetadata *rhs);
 
 
 /**
@@ -163,9 +163,9 @@ int ol_metadata_equal (const OlMetadata *lhs,
  *
  * @return The length of the serialized string, regardless of the size of buffer.
  */
-int ol_metadata_serialize (OlMetadata *metadata,
-                           char *buffer,
-                           size_t count);
+int ol_metadata_serialize(OlMetadata *metadata,
+                          char *buffer,
+                          size_t count);
 
 /**
  * @brief Converts a string to an OlMetadata
@@ -175,8 +175,8 @@ int ol_metadata_serialize (OlMetadata *metadata,
  *
  * @return 1 if succeeded, or 0 if failed
  */
-int ol_metadata_deserialize (OlMetadata *metadata,
-                             const char *data);
+int ol_metadata_deserialize(OlMetadata *metadata,
+                            const char *data);
 
 /**
  * Converts a metadata to a GVariant.
@@ -190,11 +190,11 @@ int ol_metadata_deserialize (OlMetadata *metadata,
  *
  * @return A GVariant of a{sv}
  */
-GVariant *ol_metadata_to_variant (OlMetadata *metadata);
+GVariant *ol_metadata_to_variant(OlMetadata *metadata);
 #endif /* _OL_METADATA_H_ */
 
 // get real title
-const char *ol_metadata_get_search_title (const OlMetadata *metadata);
+const char *ol_metadata_get_search_title(const OlMetadata *metadata);
 
 // get real artist
-const char *ol_metadata_get_search_artist (const OlMetadata *metadata);
+const char *ol_metadata_get_search_artist(const OlMetadata *metadata);

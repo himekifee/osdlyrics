@@ -17,50 +17,45 @@
  * along with OSD Lyrics.  If not, see <https://www.gnu.org/licenses/>. 
  */
 #include "ol_keybindings.h"
-#include "ol_keybinding_settings.h"
-#include "ol_keybinder.h"
 #include "ol_commands.h"
+#include "ol_keybinder.h"
+#include "ol_keybinding_settings.h"
 
 static GtkAccelGroup *accel = NULL;
 
-static void ol_hide_accel (gpointer userdata);
+static void ol_hide_accel(gpointer userdata);
 
 static void
-ol_hide_accel (gpointer userdata)
-{
-}
-  
-
-void
-ol_keybinding_init ()
-{
-  ol_keybinder_init ();
-  GtkAccelGroup *accel = ol_keybinding_get_accel_group ();
-  GClosure *hide_closure = g_cclosure_new ((GCallback)ol_hide_accel,
-                                           NULL,
-                                           NULL);
-  gtk_accel_map_add_entry ("<OSD Lyrics>/Switch OSD",
-                           gdk_keyval_from_name ("h"),
-                           GDK_CONTROL_MASK | GDK_SHIFT_MASK);
-  gtk_accel_group_connect_by_path (accel,
-                                   "<OSD Lyrics>/Switch OSD",
-                                   hide_closure);
-  gtk_accel_map_add_entry ("<OSD Lyrics>/Lock",
-                           gdk_keyval_from_name ("l"),
-                           GDK_CONTROL_MASK | GDK_SHIFT_MASK);
-  gtk_accel_group_connect_by_path (accel,
-                                   "<OSD Lyrics>/Switch OSD",
-                                   hide_closure);
-  ol_keybinder_bind ("<Ctrl><Shift>H", ol_osd_switch_display, NULL);
-  ol_keybinder_bind ("<Ctrl><Shift>L", ol_osd_lock_unlock, NULL);
+ol_hide_accel(gpointer userdata) {
 }
 
-GtkAccelGroup*
-ol_keybinding_get_accel_group ()
-{
-  if (accel == NULL)
-  {
-    accel = gtk_accel_group_new ();
-  }
-  return accel;
+
+void ol_keybinding_init() {
+    ol_keybinder_init();
+    GtkAccelGroup *accel = ol_keybinding_get_accel_group();
+    GClosure *hide_closure = g_cclosure_new((GCallback) ol_hide_accel,
+                                            NULL,
+                                            NULL);
+    gtk_accel_map_add_entry("<OSD Lyrics>/Switch OSD",
+                            gdk_keyval_from_name("h"),
+                            GDK_CONTROL_MASK | GDK_SHIFT_MASK);
+    gtk_accel_group_connect_by_path(accel,
+                                    "<OSD Lyrics>/Switch OSD",
+                                    hide_closure);
+    gtk_accel_map_add_entry("<OSD Lyrics>/Lock",
+                            gdk_keyval_from_name("l"),
+                            GDK_CONTROL_MASK | GDK_SHIFT_MASK);
+    gtk_accel_group_connect_by_path(accel,
+                                    "<OSD Lyrics>/Switch OSD",
+                                    hide_closure);
+    ol_keybinder_bind("<Ctrl><Shift>H", ol_osd_switch_display, NULL);
+    ol_keybinder_bind("<Ctrl><Shift>L", ol_osd_lock_unlock, NULL);
+}
+
+GtkAccelGroup *
+ol_keybinding_get_accel_group() {
+    if (accel == NULL) {
+        accel = gtk_accel_group_new();
+    }
+    return accel;
 }

@@ -22,8 +22,8 @@
 
 #include "ol_metadata.h"
 
-void ol_notify_init (void);
-void ol_notify_music_change (OlMetadata *metadata, const char *icon);
-void ol_notify_unload (void);
+void ol_notify_init(void);
+void ol_notify_music_change(OlMetadata *metadata, const char *icon);
+void ol_notify_unload(void);
 
 #endif /* _OL_NOTIFY_H_ */

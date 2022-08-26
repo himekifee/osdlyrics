@@ -21,5 +21,4 @@
 #define _OL_KEYBINDING_SETTING_H_
 
 
-
 #endif /* _OL_KEYBINDING_SETTING_H_ */

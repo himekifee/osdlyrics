@@ -19,14 +19,14 @@
  */
 #ifndef _OL_MENU_H_
 #define _OL_MENU_H_
-#include <gtk/gtkwidget.h>
+#include <gtk/gtkcheckmenuitem.h>
 #include <gtk/gtkdialog.h>
 #include <gtk/gtkfilechooser.h>
 #include <gtk/gtkfilechooserdialog.h>
-#include <gtk/gtkcheckmenuitem.h>
+#include <gtk/gtkmain.h>
 #include <gtk/gtkmenuitem.h>
 #include <gtk/gtkstock.h>
-#include <gtk/gtkmain.h>
+#include <gtk/gtkwidget.h>
 
 /**
  * @brief Gets singleton popup menu
@@ -34,6 +34,6 @@
  *
  * @return The popup menu for the app
  */
-GtkWidget* ol_menu_get_popup ();
+GtkWidget *ol_menu_get_popup();
 
 #endif /* _OL_MENU_H_ */

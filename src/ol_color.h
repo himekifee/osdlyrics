@@ -20,11 +20,10 @@
 #ifndef _OL_COLOR_H_
 #define _OL_COLOR_H_
 
-typedef struct __OlColor
-{
-  double r;
-  double g;
-  double b;
+typedef struct __OlColor {
+    double r;
+    double g;
+    double b;
 } OlColor;
 
 /** 
@@ -35,7 +34,7 @@ typedef struct __OlColor
  * @return The corresponding color, if color_str is not a valid color string,
  *         return black (result of #000000)
  */
-OlColor ol_color_from_string (const char *color_str);
+OlColor ol_color_from_string(const char *color_str);
 
 /** 
  * @brief Convert a color to a string in the form of #RRGGBB
@@ -45,7 +44,7 @@ OlColor ol_color_from_string (const char *color_str);
  * @return The converted string. It belongs to the function and should not be
  *         freed. It will be changed after another ol_color_to_string is called.
  */
-const char* ol_color_to_string (OlColor color);
+const char *ol_color_to_string(OlColor color);
 
 /** 
  * @brief Converts a string list to color array
@@ -55,7 +54,7 @@ const char* ol_color_to_string (OlColor color);
  * 
  * @return Color array, should be free with g_free, or NULL if failed
  */
-OlColor* ol_color_from_str_list (const char **str_list, int *len);
+OlColor *ol_color_from_str_list(const char **str_list, int *len);
 
 /** 
  * @brief Converts a color array to NULL terminated string array
@@ -65,7 +64,7 @@ OlColor* ol_color_from_str_list (const char **str_list, int *len);
  * 
  * @return NULL terminated string array, free with g_strfreev
  */
-char** ol_color_to_str_list (const OlColor *colors, int len);
+char **ol_color_to_str_list(const OlColor *colors, int len);
 
 extern const OlColor ol_color_black;
 

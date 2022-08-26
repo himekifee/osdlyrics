@@ -24,14 +24,14 @@
 #include <gtk/gtktogglebutton.h>
 #include <gtk/gtktreeselection.h>
 
-#include "ol_metadata.h"
 #include "ol_lyric_source.h"
+#include "ol_metadata.h"
 
-typedef void (*OlLrcFetchUiDownloadFunc) (OlLyricSourceCandidate *candidate,
-                                          const OlMetadata *metadata);
+typedef void (*OlLrcFetchUiDownloadFunc)(OlLyricSourceCandidate *candidate,
+                                         const OlMetadata *metadata);
 
-void ol_lyric_candidate_selector_show (GList *candidates,
-                                       const OlMetadata *metadata,
-                                       OlLrcFetchUiDownloadFunc download_func);
+void ol_lyric_candidate_selector_show(GList *candidates,
+                                      const OlMetadata *metadata,
+                                      OlLrcFetchUiDownloadFunc download_func);
 
 #endif /* _OL_LYRIC_CANDIDATE_SELECTOR_H_ */

@@ -27,5 +27,5 @@
  *        CAIRO_FORMAT_ARGB32 format is supported.
  * @param sigma The variance of Gussian function.
  */
-void ol_gussian_blur (cairo_surface_t *surface,
-                      double sigma);
+void ol_gussian_blur(cairo_surface_t *surface,
+                     double sigma);

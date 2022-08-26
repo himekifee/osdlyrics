@@ -19,17 +19,17 @@
  */
 #ifndef __OL_UTILS_H__
 #define __OL_UTILS_H__
-#include <unistd.h>
-#include <glib.h>
 #include <gio/gio.h>
+#include <glib.h>
+#include <unistd.h>
 
-#define ol_get_array_len(arr) (sizeof (arr) / sizeof (arr[0]))
+#define ol_get_array_len(arr) (sizeof(arr) / sizeof(arr[0]))
 
-const gchar* ol_get_string_from_hash_table (GHashTable *hash_table, const gchar *name);
-gchar** ol_get_str_list_from_hash_table (GHashTable *hash_table, const gchar *name);
-gint ol_get_int_from_hash_table (GHashTable *hash_table, const gchar *name);
-guint ol_get_uint_from_hash_table (GHashTable *hash_table, const gchar *name);
-gint64 ol_get_int64_from_hash_table (GHashTable *hash_table, const gchar *name);
+const gchar *ol_get_string_from_hash_table(GHashTable *hash_table, const gchar *name);
+gchar **ol_get_str_list_from_hash_table(GHashTable *hash_table, const gchar *name);
+gint ol_get_int_from_hash_table(GHashTable *hash_table, const gchar *name);
+guint ol_get_uint_from_hash_table(GHashTable *hash_table, const gchar *name);
+gint64 ol_get_int64_from_hash_table(GHashTable *hash_table, const gchar *name);
 
 /**
  * @brief Checks if a string is empty
@@ -38,14 +38,14 @@ gint64 ol_get_int64_from_hash_table (GHashTable *hash_table, const gchar *name);
  *
  * @return If the string is empty, returns true
  */
-gboolean ol_is_string_empty (const char *str);
+gboolean ol_is_string_empty(const char *str);
 
 /**
  * @brief allocate memory for pathname, from APUE
  *
  * @return pointer to this memory if success, or NULL. Should be free with free()
  */
-char* ol_path_alloc(void);
+char *ol_path_alloc(void);
 
 /**
  * @brief comparing str1 with str2 case insensitive
@@ -70,10 +70,10 @@ int ol_stricmp(const char *str1, const char *str2, const ssize_t count);
  *
  * @return The end of the destination if suceeded, or NULL if failed.
  */
-char* ol_memcpy (char *dest,
-                   size_t dest_len,
-                   const char *src,
-                   size_t src_len);
+char *ol_memcpy(char *dest,
+                size_t dest_len,
+                const char *src,
+                size_t src_len);
 
 /**
  * @Calculates the largest common substring for two strings
@@ -83,7 +83,7 @@ char* ol_memcpy (char *dest,
  *
  * @return the length of the largest common substring
  */
-size_t ol_lcs (const char *str1, const char *str2);
+size_t ol_lcs(const char *str1, const char *str2);
 
 /**
  * @Checks whether two strings are equale
@@ -95,7 +95,7 @@ size_t ol_lcs (const char *str1, const char *str2);
  *
  * @return TRUE if they are equal
  */
-int ol_streq (const char *str1, const char *str2);
+int ol_streq(const char *str1, const char *str2);
 
 /**
  * @Copy the content of a string pointer to another
@@ -108,7 +108,7 @@ int ol_streq (const char *str1, const char *str2);
  *
  * @return The string that dest points to after copying
  */
-char *ol_strptrcpy (char **dest, const char *src);
+char *ol_strptrcpy(char **dest, const char *src);
 
 /**
  * @brief Find the first '\n', change it into '\0' and return the pointer to \
@@ -118,7 +118,7 @@ char *ol_strptrcpy (char **dest, const char *src);
  *
  * @return The pointer to the next line. If no '\n' exists, return NULL
  */
-char *ol_split_a_line (char *str);
+char *ol_split_a_line(char *str);
 
 /**
  * @brief Fill the heading and tailing white spaces of str with '\0', \
@@ -130,7 +130,7 @@ char *ol_split_a_line (char *str);
  * @return The pointer to the first non-space character, \
  *         or NULL if str is empty or NULL.
  */
-char *ol_trim_string (char *str);
+char *ol_trim_string(char *str);
 
 /**
  * @brief Check whether a file exists and is a regular file.
@@ -139,7 +139,7 @@ char *ol_trim_string (char *str);
  *
  * @return TRUE if the file in the path exists and is a regular file
  */
-gboolean ol_path_is_file (const char *filename);
+gboolean ol_path_is_file(const char *filename);
 
 /**
  * @brief Gets the length of a file
@@ -148,7 +148,7 @@ gboolean ol_path_is_file (const char *filename);
  *
  * @return The length of a file, or negative if error occurs
  */
-ssize_t ol_file_len (const char *filename);
+ssize_t ol_file_len(const char *filename);
 
 /**
  * Converts a string to hex representation.
@@ -158,7 +158,7 @@ ssize_t ol_file_len (const char *filename);
  *
  * @return The encoded string, should be freed with g_free.
  */
-char* ol_encode_hex (const char *data, ssize_t len);
+char *ol_encode_hex(const char *data, ssize_t len);
 
 /**
  * Split a path into two parts (root, ext), the ext is the extension of a file
@@ -172,7 +172,7 @@ char* ol_encode_hex (const char *data, ssize_t len);
  * @param ext The extension of filename, or NULL if no extension found.
  *            Should be freed with g_free.
  */
-void ol_path_splitext (const char *path, char **root, char **ext);
+void ol_path_splitext(const char *path, char **root, char **ext);
 
 /**
  * Compares two GAppInfo according to its name.
@@ -186,7 +186,7 @@ void ol_path_splitext (const char *path, char **root, char **ext);
  *         Negative if a is less than b.
  *         Otherwise a is greater than b.
  */
-gint ol_app_info_cmp (GAppInfo *a, GAppInfo *b);
+gint ol_app_info_cmp(GAppInfo *a, GAppInfo *b);
 
 /**
  * Launch a commandline from GAppInfo
@@ -195,7 +195,7 @@ gint ol_app_info_cmp (GAppInfo *a, GAppInfo *b);
  *
  * @return TRUE on successful launch, FALSE otherwise.
  */
-gboolean ol_launch_app (const char *cmdline);
+gboolean ol_launch_app(const char *cmdline);
 
 /**
  * Pass names of all files and directories in the specified directory to given
@@ -211,10 +211,10 @@ gboolean ol_launch_app (const char *cmdline);
  * @return TRUE if the traversal is no interrupted because traverse_func returns
  *         FALSE. The return value is intend to be used in recursive traversal.
  */
-gboolean ol_traverse_dir (const char *dir,
-                          gboolean recursive,
-                          gboolean (*traverse_func) (const char *path,
-                                                     const char *filename,
-                                                     gpointer userdata),
-                          gpointer userdata);
-#endif // __OL_UTILS_H__
+gboolean ol_traverse_dir(const char *dir,
+                         gboolean recursive,
+                         gboolean (*traverse_func)(const char *path,
+                                                   const char *filename,
+                                                   gpointer userdata),
+                         gpointer userdata);
+#endif// __OL_UTILS_H__

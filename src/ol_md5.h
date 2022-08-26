@@ -39,25 +39,21 @@
 /* Digest is kept internally as 4 32-bit words. */
 #define _MD5_DIGEST_LENGTH 4
 
-struct md5_ctx
-{
-  guint32 digest[_MD5_DIGEST_LENGTH];
-  guint32 count_l, count_h;    /* Block count */
-  guint8 block[MD5_DATA_SIZE]; /* Block buffer */
-  unsigned index;               /* Into buffer */
+struct md5_ctx {
+    guint32 digest[_MD5_DIGEST_LENGTH];
+    guint32 count_l, count_h;    /* Block count */
+    guint8 block[MD5_DATA_SIZE]; /* Block buffer */
+    unsigned index;              /* Into buffer */
 };
 
-void
-md5_init(struct md5_ctx *ctx);
+void md5_init(struct md5_ctx *ctx);
 
-void
-md5_update(struct md5_ctx *ctx,
-           unsigned length,
-           const guint8 *data);
+void md5_update(struct md5_ctx *ctx,
+                unsigned length,
+                const guint8 *data);
 
-void
-md5_digest(struct md5_ctx *ctx,
-           unsigned length,
-           guint8 *digest);
+void md5_digest(struct md5_ctx *ctx,
+                unsigned length,
+                guint8 *digest);
 
 #endif /* NETTLE_MD5_H_INCLUDED */

@@ -20,8 +20,8 @@
 #ifndef __OL_UTILS_DBUS_H__
 #define __OL_UTILS_DBUS_H__
 
-#include <glib.h>
 #include <dbus/dbus-glib.h>
+#include <glib.h>
 
 /** 
  * @brief Gets the connection of dbus
@@ -29,7 +29,7 @@
  * 
  * @return A singleton connection, shouldn't be freed
  */
-DBusGConnection *ol_dbus_get_connection ();
+DBusGConnection *ol_dbus_get_connection();
 
 /** 
  * @brief Invokes a dbus method without parameter and returns a string
@@ -40,61 +40,61 @@ DBusGConnection *ol_dbus_get_connection ();
  * 
  * @return If succeeded, return TRUE
  */
-gboolean ol_dbus_get_string (DBusGProxy *proxy,
-                             const gchar *method,
-                             gchar **returnval);
-gboolean ol_dbus_get_string_with_str_arg (DBusGProxy *proxy,
-                                          const gchar *method,
-                                          const gchar *arg,
-                                          gchar **returnval);
-gboolean ol_dbus_set_string (DBusGProxy *proxy,
-                             const gchar *method,
-                             const gchar *value);
+gboolean ol_dbus_get_string(DBusGProxy *proxy,
+                            const gchar *method,
+                            gchar **returnval);
+gboolean ol_dbus_get_string_with_str_arg(DBusGProxy *proxy,
+                                         const gchar *method,
+                                         const gchar *arg,
+                                         gchar **returnval);
+gboolean ol_dbus_set_string(DBusGProxy *proxy,
+                            const gchar *method,
+                            const gchar *value);
 
-gboolean ol_dbus_get_uint (DBusGProxy *proxy,
-                           const gchar *method,
-                           guint *returnval);
-gboolean ol_dbus_set_uint (DBusGProxy *proxy,
-                           const gchar *method,
-                           guint value);
-
-gboolean ol_dbus_get_int (DBusGProxy *proxy,
+gboolean ol_dbus_get_uint(DBusGProxy *proxy,
                           const gchar *method,
-                          gint *returnval);
-gboolean ol_dbus_set_int (DBusGProxy *proxy,
+                          guint *returnval);
+gboolean ol_dbus_set_uint(DBusGProxy *proxy,
                           const gchar *method,
-                          gint value);
+                          guint value);
 
-gboolean ol_dbus_get_int64 (DBusGProxy *proxy,
-                            const gchar *method,
-                            gint64 *returnval);
-gboolean ol_dbus_set_int64 (DBusGProxy *proxy,
-                            const gchar *method,
-                            gint64 value);
+gboolean ol_dbus_get_int(DBusGProxy *proxy,
+                         const gchar *method,
+                         gint *returnval);
+gboolean ol_dbus_set_int(DBusGProxy *proxy,
+                         const gchar *method,
+                         gint value);
 
-gboolean ol_dbus_get_uint8 (DBusGProxy *proxy,
-                            const gchar *method,
-                            guint8 *returnval);
-gboolean ol_dbus_set_uint8 (DBusGProxy *proxy,
-                            const gchar *method,
-                            guint8 value);
-
-gboolean ol_dbus_get_bool (DBusGProxy *proxy,
+gboolean ol_dbus_get_int64(DBusGProxy *proxy,
                            const gchar *method,
-                           gboolean *returnval);
-gboolean ol_dbus_set_bool (DBusGProxy *proxy,
+                           gint64 *returnval);
+gboolean ol_dbus_set_int64(DBusGProxy *proxy,
                            const gchar *method,
-                           gboolean value);
+                           gint64 value);
 
-gboolean ol_dbus_get_double (DBusGProxy *proxy,
-                             const gchar *method,
-                             gdouble *returnval);
+gboolean ol_dbus_get_uint8(DBusGProxy *proxy,
+                           const gchar *method,
+                           guint8 *returnval);
+gboolean ol_dbus_set_uint8(DBusGProxy *proxy,
+                           const gchar *method,
+                           guint8 value);
 
-gboolean ol_dbus_invoke (DBusGProxy *proxy, const gchar *method);
+gboolean ol_dbus_get_bool(DBusGProxy *proxy,
+                          const gchar *method,
+                          gboolean *returnval);
+gboolean ol_dbus_set_bool(DBusGProxy *proxy,
+                          const gchar *method,
+                          gboolean value);
 
-gboolean ol_dbus_invoke_with_str_arg (DBusGProxy *proxy,
-                                      const gchar *method,
-                                      const gchar *arg);
+gboolean ol_dbus_get_double(DBusGProxy *proxy,
+                            const gchar *method,
+                            gdouble *returnval);
+
+gboolean ol_dbus_invoke(DBusGProxy *proxy, const gchar *method);
+
+gboolean ol_dbus_invoke_with_str_arg(DBusGProxy *proxy,
+                                     const gchar *method,
+                                     const gchar *arg);
 /** 
  * Connect to a dbus service, get a proxy to invoke methods
  * 
@@ -117,12 +117,12 @@ gboolean ol_dbus_invoke_with_str_arg (DBusGProxy *proxy,
  * 
  * @return TRUE if connected.
  */
-gboolean ol_dbus_connect (const gchar *service,
-                          const gchar *path,
-                          const gchar *interface,
-                          GCallback disconnect_handler,
-                          gpointer disconnect_data,
-                          DBusGProxy **proxy);
+gboolean ol_dbus_connect(const gchar *service,
+                         const gchar *path,
+                         const gchar *interface,
+                         GCallback disconnect_handler,
+                         gpointer disconnect_data,
+                         DBusGProxy **proxy);
 
 /** 
  * Free a DBusGProxy pointer and set the pointer to NULL.
@@ -133,7 +133,7 @@ gboolean ol_dbus_connect (const gchar *service,
  * @param object Not used, just to fit the signal handler prototype
  * @param proxy The proxy to be freed. It will be set to NULL afterwards
  */
-void ol_dbus_unref_proxy (GObject *object, DBusGProxy **proxy);
+void ol_dbus_unref_proxy(GObject *object, DBusGProxy **proxy);
 
 /** 
  * Lists owned-names on session bus.
@@ -143,19 +143,19 @@ void ol_dbus_unref_proxy (GObject *object, DBusGProxy **proxy);
  * 
  * @return 
  */
-char** ol_dbus_list_names ();
+char **ol_dbus_list_names();
 
-gboolean ol_dbus_get_property (DBusGProxy *proxy,
-                               const char *name,
-                               GValue *value);
+gboolean ol_dbus_get_property(DBusGProxy *proxy,
+                              const char *name,
+                              GValue *value);
 
-gboolean ol_dbus_get_bool_property (DBusGProxy *proxy,
+gboolean ol_dbus_get_bool_property(DBusGProxy *proxy,
+                                   const char *name,
+                                   gboolean *returnval);
+
+gboolean ol_dbus_get_int64_property(DBusGProxy *proxy,
                                     const char *name,
-                                    gboolean *returnval);
-
-gboolean ol_dbus_get_int64_property (DBusGProxy *proxy,
-                                     const char *name,
-                                     gint64 *returnval);
+                                    gint64 *returnval);
 
 /** 
  * 
@@ -166,9 +166,9 @@ gboolean ol_dbus_get_int64_property (DBusGProxy *proxy,
  * 
  * @return 
  */
-gboolean ol_dbus_get_string_property (DBusGProxy *proxy,
-                                      const char *name,
-                                      char **returnval);
+gboolean ol_dbus_get_string_property(DBusGProxy *proxy,
+                                     const char *name,
+                                     char **returnval);
 /** 
  * 
  * 
@@ -178,8 +178,8 @@ gboolean ol_dbus_get_string_property (DBusGProxy *proxy,
  * 
  * @return 
  */
-gboolean ol_dbus_get_dict_property (DBusGProxy *proxy,
-                                    const char *name,
-                                    GHashTable **returnval);
+gboolean ol_dbus_get_dict_property(DBusGProxy *proxy,
+                                   const char *name,
+                                   GHashTable **returnval);
 
-#endif // __OL_UTILS_DBUS_H__
+#endif// __OL_UTILS_DBUS_H__

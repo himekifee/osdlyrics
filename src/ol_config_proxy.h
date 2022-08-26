@@ -23,34 +23,32 @@
 
 #include <gio/gio.h>
 
-#define OL_TYPE_CONFIG_PROXY                    \
-  (ol_config_proxy_get_type ())
-#define OL_CONFIG_PROXY(obj)                                        \
-  (G_TYPE_CHECK_INSTANCE_CAST ((obj), OL_TYPE_CONFIG_PROXY, OlConfigProxy))
-#define OL_IS_CONFIG_PROXY(obj)                             \
-  (G_TYPE_CHECK_INSTANCE_TYPE ((obj), OL_TYPE_CONFIG_PROXY))
-#define OL_CONFIG_PROXY_CLASS(klass)                                    \
-  (G_TYPE_CHECK_CLASS_CAST ((klass), OL_TYPE_CONFIG_PROXY, OlConfigProxyClass))
-#define OL_IS_CONFIG_PROXY_CLASS(klass)                   \
-  (G_TYPE_CHECK_CLASS_TYPE ((klass), OL_TYPE_CONFIG_PROXY))
-#define OL_CONFIG_PROXY_GET_CLASS(obj)                                  \
-  (G_TYPE_INSTANCE_GET_CLASS ((obj), OL_TYPE_CONFIG_PROXY, OlConfigProxyClass))
+#define OL_TYPE_CONFIG_PROXY \
+    (ol_config_proxy_get_type())
+#define OL_CONFIG_PROXY(obj) \
+    (G_TYPE_CHECK_INSTANCE_CAST((obj), OL_TYPE_CONFIG_PROXY, OlConfigProxy))
+#define OL_IS_CONFIG_PROXY(obj) \
+    (G_TYPE_CHECK_INSTANCE_TYPE((obj), OL_TYPE_CONFIG_PROXY))
+#define OL_CONFIG_PROXY_CLASS(klass) \
+    (G_TYPE_CHECK_CLASS_CAST((klass), OL_TYPE_CONFIG_PROXY, OlConfigProxyClass))
+#define OL_IS_CONFIG_PROXY_CLASS(klass) \
+    (G_TYPE_CHECK_CLASS_TYPE((klass), OL_TYPE_CONFIG_PROXY))
+#define OL_CONFIG_PROXY_GET_CLASS(obj) \
+    (G_TYPE_INSTANCE_GET_CLASS((obj), OL_TYPE_CONFIG_PROXY, OlConfigProxyClass))
 
 typedef struct _OlConfigProxy OlConfigProxy;
 typedef struct _OlConfigProxyClass OlConfigProxyClass;
 
-struct _OlConfigProxy
-{
-  GDBusProxy parent;
-  gpointer priv;
+struct _OlConfigProxy {
+    GDBusProxy parent;
+    gpointer priv;
 };
 
-struct _OlConfigProxyClass
-{
-  GDBusProxyClass parent;
+struct _OlConfigProxyClass {
+    GDBusProxyClass parent;
 };
 
-GType ol_config_proxy_get_type (void);
+GType ol_config_proxy_get_type(void);
 
 /**
  * @brief Gets the singleton instance of OlConfigProxy
@@ -58,7 +56,7 @@ GType ol_config_proxy_get_type (void);
  *
  * @return An instance of OlConfigProxy, should not be freed
  */
-OlConfigProxy* ol_config_proxy_get_instance (void);
+OlConfigProxy *ol_config_proxy_get_instance(void);
 
 /**
  * @brief Sets an boolean property to the config
@@ -72,9 +70,9 @@ OlConfigProxy* ol_config_proxy_get_instance (void);
  *
  * @return If succeed, returns TRUE
  */
-gboolean ol_config_proxy_set_bool (OlConfigProxy *config,
-                                   const gchar *key,
-                                   gboolean value);
+gboolean ol_config_proxy_set_bool(OlConfigProxy *config,
+                                  const gchar *key,
+                                  gboolean value);
 
 /**
  * @brief Sets an int property to the config
@@ -88,9 +86,9 @@ gboolean ol_config_proxy_set_bool (OlConfigProxy *config,
  *
  * @return If succeed, returns TRUE
  */
-gboolean ol_config_proxy_set_int (OlConfigProxy *config,
-                                  const gchar *key,
-                                  gint value);
+gboolean ol_config_proxy_set_int(OlConfigProxy *config,
+                                 const gchar *key,
+                                 gint value);
 
 /**
  * @brief Sets a double property to the config
@@ -104,9 +102,9 @@ gboolean ol_config_proxy_set_int (OlConfigProxy *config,
  *
  * @return If succeed, returns TRUE
  */
-gboolean ol_config_proxy_set_double (OlConfigProxy *config,
-                                     const gchar *key,
-                                     gdouble value);
+gboolean ol_config_proxy_set_double(OlConfigProxy *config,
+                                    const gchar *key,
+                                    gdouble value);
 
 /**
  * @brief Sets a string property to the config
@@ -120,9 +118,9 @@ gboolean ol_config_proxy_set_double (OlConfigProxy *config,
  *
  * @return If succeed, returns TRUE
  */
-gboolean ol_config_proxy_set_string (OlConfigProxy *config,
-                                     const gchar *key,
-                                     const gchar* value);
+gboolean ol_config_proxy_set_string(OlConfigProxy *config,
+                                    const gchar *key,
+                                    const gchar *value);
 
 /**
  * @brief Sets a string list property to the config
@@ -138,10 +136,10 @@ gboolean ol_config_proxy_set_string (OlConfigProxy *config,
  *
  * @return If succeed, returns TRUE
  */
-gboolean ol_config_proxy_set_str_list (OlConfigProxy *config,
-                                 const gchar *key,
-                                 const gchar * const *value,
-                                 gint len);
+gboolean ol_config_proxy_set_str_list(OlConfigProxy *config,
+                                      const gchar *key,
+                                      const gchar *const *value,
+                                      gint len);
 
 /**
  * @brief Gets a boolean property from the config
@@ -157,8 +155,8 @@ gboolean ol_config_proxy_set_str_list (OlConfigProxy *config,
  * @return If succeed, returns int value of the content. \
  *         If fail or the key does not exist, FALSE is returned.
  */
-gboolean ol_config_proxy_get_bool (OlConfigProxy *config,
-                                   const gchar *key);
+gboolean ol_config_proxy_get_bool(OlConfigProxy *config,
+                                  const gchar *key);
 
 /**
  * @brief Gets a int property from the config
@@ -174,8 +172,8 @@ gboolean ol_config_proxy_get_bool (OlConfigProxy *config,
  * @return If succeed, returns int value of the content. \
  *         If fail or the key does not exist, 0 is retuened.
  */
-gint ol_config_proxy_get_int (OlConfigProxy *config,
-                              const gchar *key);
+gint ol_config_proxy_get_int(OlConfigProxy *config,
+                             const gchar *key);
 /**
  * @brief Gets a double property from the config
  *
@@ -190,8 +188,8 @@ gint ol_config_proxy_get_int (OlConfigProxy *config,
  * @return If succeed, returns double value of the content. \
  *         If fail or the key does not exist, 0.0 is returned.
  */
-gdouble ol_config_proxy_get_double (OlConfigProxy *config,
-                                    const gchar *key);
+gdouble ol_config_proxy_get_double(OlConfigProxy *config,
+                                   const gchar *key);
 /**
  * @brief Gets a string property of the config
  *
@@ -206,8 +204,8 @@ gdouble ol_config_proxy_get_double (OlConfigProxy *config,
  * @return If succeed, returns duplicated string value of the content, \
  *         must be freed by g_free. If fail or the key does not exist, returns NULL.
  */
-gchar* ol_config_proxy_get_string (OlConfigProxy *config,
-                                   const gchar *key);
+gchar *ol_config_proxy_get_string(OlConfigProxy *config,
+                                  const gchar *key);
 
 /**
  * @brief Gets a string property of the config
@@ -223,9 +221,9 @@ gchar* ol_config_proxy_get_string (OlConfigProxy *config,
  *         be found. The array should be freed with g_strfreev().
  *         If fail or the key does not exist, NULL will be returned.
  */
-gchar** ol_config_proxy_get_str_list (OlConfigProxy *config,
-                                      const char *key,
-                                      gsize *len);
+gchar **ol_config_proxy_get_str_list(OlConfigProxy *config,
+                                     const char *key,
+                                     gsize *len);
 
 /**
  * Sets the default value to a boolean config entry.
@@ -241,9 +239,9 @@ gchar** ol_config_proxy_get_str_list (OlConfigProxy *config,
  *
  * @return If succeed, returns TRUE
  */
-gboolean ol_config_proxy_set_bool_default (OlConfigProxy *config,
-                                           const gchar *key,
-                                           gboolean value);
+gboolean ol_config_proxy_set_bool_default(OlConfigProxy *config,
+                                          const gchar *key,
+                                          gboolean value);
 
 /**
  * Sets the default value to a integer config entry.
@@ -260,9 +258,9 @@ gboolean ol_config_proxy_set_bool_default (OlConfigProxy *config,
  *
  * @return If succeed, returns TRUE
  */
-gboolean ol_config_proxy_set_int_default (OlConfigProxy *config,
-                                          const gchar *key,
-                                          gint value);
+gboolean ol_config_proxy_set_int_default(OlConfigProxy *config,
+                                         const gchar *key,
+                                         gint value);
 
 /**
  * Sets the default value to a double config entry.
@@ -279,9 +277,9 @@ gboolean ol_config_proxy_set_int_default (OlConfigProxy *config,
  *
  * @return If succeed, returns TRUE
  */
-gboolean ol_config_proxy_set_double_default (OlConfigProxy *config,
-                                             const gchar *key,
-                                             gdouble value);
+gboolean ol_config_proxy_set_double_default(OlConfigProxy *config,
+                                            const gchar *key,
+                                            gdouble value);
 
 /**
  * Sets the default value to a string config entry.
@@ -298,9 +296,9 @@ gboolean ol_config_proxy_set_double_default (OlConfigProxy *config,
  *
  * @return If succeed, returns TRUE
  */
-gboolean ol_config_proxy_set_string_default (OlConfigProxy *config,
-                                             const gchar *key,
-                                             const gchar* value);
+gboolean ol_config_proxy_set_string_default(OlConfigProxy *config,
+                                            const gchar *key,
+                                            const gchar *value);
 
 /**
  * Sets the default value to a string list config entry.
@@ -319,20 +317,20 @@ gboolean ol_config_proxy_set_string_default (OlConfigProxy *config,
  *
  * @return If succeed, returns TRUE
  */
-gboolean ol_config_proxy_set_str_list_default (OlConfigProxy *config,
-                                               const gchar *key,
-                                               const gchar * const *value,
-                                               gint len);
+gboolean ol_config_proxy_set_str_list_default(OlConfigProxy *config,
+                                              const gchar *key,
+                                              const gchar *const *value,
+                                              gint len);
 /**
  * @brief Unload config module
  *
  */
-void ol_config_proxy_unload (void);
+void ol_config_proxy_unload(void);
 
 /**
  * Sync the config settings immediately.
  *
  */
-void ol_config_proxy_sync (OlConfigProxy *config);
+void ol_config_proxy_sync(OlConfigProxy *config);
 
 #endif /* _OL_CONFIG_PROXY_H_ */

@@ -30,14 +30,14 @@ typedef struct _OlTimeline OlTimeline;
  * @return The new timeline. Its status is stopped, time is 0, and accuracy is
  *         1000 milliseconds.
  */
-OlTimeline *ol_timeline_new (void);
+OlTimeline *ol_timeline_new(void);
 
 /** 
  * Free a timeline
  * 
  * @param timeline The timeline to be freed.
  */
-void ol_timeline_free (OlTimeline *timeline);
+void ol_timeline_free(OlTimeline *timeline);
 
 /** 
  * Change status of a timeline to playing.
@@ -45,7 +45,7 @@ void ol_timeline_free (OlTimeline *timeline);
  * The time of the timeline will keep increasing.
  * @param timeline A timeline.
  */
-void ol_timeline_play (OlTimeline *timeline);
+void ol_timeline_play(OlTimeline *timeline);
 
 /** 
  * Change status of a timeline to paused.
@@ -53,7 +53,7 @@ void ol_timeline_play (OlTimeline *timeline);
  * The time of the timeline will not be changed.
  * @param timeline A timeline.
  */
-void ol_timeline_pause (OlTimeline *timeline);
+void ol_timeline_pause(OlTimeline *timeline);
 
 /** 
  * Change status of a timeline to stopped.
@@ -61,7 +61,7 @@ void ol_timeline_pause (OlTimeline *timeline);
  * The time of the timeline will be reset to 0.
  * @param timeline A timeline.
  */
-void ol_timeline_stop (OlTimeline *timeline);
+void ol_timeline_stop(OlTimeline *timeline);
 
 /** 
  * Set time of a timeline if neccessary.
@@ -76,8 +76,8 @@ void ol_timeline_stop (OlTimeline *timeline);
  * @param timeline A timeline.
  * @param time_in_ms The time to set, in milliseconds.
  */
-void ol_timeline_maybe_set_time (OlTimeline *timeline,
-                                 gint64 time_in_ms);
+void ol_timeline_maybe_set_time(OlTimeline *timeline,
+                                gint64 time_in_ms);
 
 /** 
  * Set time of a timeline.
@@ -85,8 +85,8 @@ void ol_timeline_maybe_set_time (OlTimeline *timeline,
  * @param timeline A timeline.
  * @param time_in_ms The time to set, in milliseconds.
  */
-void ol_timeline_set_time (OlTimeline *timeline,
-                           gint64 time_in_ms);
+void ol_timeline_set_time(OlTimeline *timeline,
+                          gint64 time_in_ms);
 
 /** 
  * Get current time of a timeline.
@@ -95,7 +95,7 @@ void ol_timeline_set_time (OlTimeline *timeline,
  * 
  * @return 
  */
-gint64 ol_timeline_get_time (OlTimeline *timeline);
+gint64 ol_timeline_get_time(OlTimeline *timeline);
 
 /** 
  * Set accuracy of a timeline.
@@ -104,8 +104,8 @@ gint64 ol_timeline_get_time (OlTimeline *timeline);
  * @param timeline 
  * @param accuracy 
  */
-void ol_timeline_set_accuracy (OlTimeline *timeline,
-                               guint accuracy);
+void ol_timeline_set_accuracy(OlTimeline *timeline,
+                              guint accuracy);
 
 /** 
  * Get accuracy of a timeline.
@@ -114,6 +114,6 @@ void ol_timeline_set_accuracy (OlTimeline *timeline,
  * 
  * @return 
  */
-guint ol_timeline_get_accuracy (OlTimeline *timeline);
+guint ol_timeline_get_accuracy(OlTimeline *timeline);
 
 #endif /* _OL_TIMELINE_H_ */

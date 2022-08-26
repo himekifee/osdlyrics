@@ -20,8 +20,8 @@
 #ifndef _OL_STOCK_H_
 #define _OL_STOCK_H_
 
-#define OL_STOCK_TRAYICON  "osdlyrics-trayicon"
-#define OL_STOCK_LOADING  "osdlyrics-loading"
+#define OL_STOCK_TRAYICON "osdlyrics-trayicon"
+#define OL_STOCK_LOADING "osdlyrics-loading"
 #define OL_STOCK_OSD_BG "osdlyrics-osd-bg"
 #define OL_STOCK_OSD_PLAY "osdlyrics-osd-play"
 #define OL_STOCK_OSD_PAUSE "osdlyrics-osd-pause"
@@ -29,6 +29,6 @@
 #define OL_STOCK_OSD_PREV "osdlyrics-osd-prev"
 #define OL_STOCK_OSD_NEXT "osdlyrics-osd-next"
 #define OL_STOCK_SCROLL_CLOSE "osdlyrics-scroll-close"
-void ol_stock_init ();
+void ol_stock_init();
 
 #endif /* _OL_STOCK_H_ */

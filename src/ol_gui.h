@@ -20,8 +20,8 @@
 #ifndef _OL_GUI_H_
 #define _OL_GUI_H_
 
-#include <gtk/gtkwidget.h>
 #include <gtk/gtkbuilder.h>
+#include <gtk/gtkwidget.h>
 
 /**
  * @brief Gets a widget in Glade file by name
@@ -30,6 +30,6 @@
  *
  * @return
  */
-GtkWidget *ol_gui_get_widget (const char *name);
+GtkWidget *ol_gui_get_widget(const char *name);
 
 #endif /* _OL_GUI_H_ */

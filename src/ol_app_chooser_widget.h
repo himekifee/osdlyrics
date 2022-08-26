@@ -21,42 +21,42 @@
 #ifndef _OL_APP_CHOOSER_WIDGET_H_
 #define _OL_APP_CHOOSER_WIDGET_H_
 
-#include <gtk/gtkwidget.h>
-#include <gtk/gtktable.h>
-#include <gtk/gtkicontheme.h>
-#include <gtk/gtklabel.h>
-#include <gtk/gtkimage.h>
-#include <gtk/gtkvbox.h>
-#include <gtk/gtkframe.h>
-#include <gtk/gtkbutton.h>
 #include <gtk/gtkaspectframe.h>
+#include <gtk/gtkbutton.h>
+#include <gtk/gtkframe.h>
+#include <gtk/gtkicontheme.h>
+#include <gtk/gtkimage.h>
+#include <gtk/gtklabel.h>
+#include <gtk/gtktable.h>
 #include <gtk/gtktypeutils.h>
+#include <gtk/gtkvbox.h>
+#include <gtk/gtkwidget.h>
 
 typedef struct {
-  GtkWidget widget;
-  GtkTable parent;
+    GtkWidget widget;
+    GtkTable parent;
 } OlAppChooserWidget;
 
 typedef struct {
-  GtkWidgetClass widget_class;
-  GtkTableClass parent_class;
+    GtkWidgetClass widget_class;
+    GtkTableClass parent_class;
 } OlAppChooserWidgetClass;
 
-#define OL_TYPE_APP_CHOOSER_WIDGET                                      \
-  ol_app_chooser_widget_get_type ()
-#define OL_APP_CHOOSER_WIDGET(obj)                                      \
-  G_TYPE_CHECK_INSTANCE_CAST (obj, OL_TYPE_APP_CHOOSER_WIDGET, OlAppChooserWidget)
-#define OL_APP_CHOOSER_WIDGET_CLASS(klass)                              \
-  GTK_CHECK_CLASS_CAST (klass, OL_TYPE_APP_CHOOSER_WIDGET, OlAppChooserWidgetClass)
-#define OL_IS_APP_CHOOSER_WIDGET(obj)               \
-  G_TYPE_CHECK_INSTANCE_TYPE (obj, OL_TYPE_APP_CHOOSER_WIDGET)
-#define OL_APP_CHOOSER_WIDGET_GET_CLASS(obj)                            \
-  (G_TYPE_INSTANCE_GET_CLASS ((obj),                                    \
-                              OL_TYPE_APP_CHOOSER_WIDGET,               \
-                              OlAppChooserWidgetClass))
+#define OL_TYPE_APP_CHOOSER_WIDGET \
+    ol_app_chooser_widget_get_type()
+#define OL_APP_CHOOSER_WIDGET(obj) \
+    G_TYPE_CHECK_INSTANCE_CAST(obj, OL_TYPE_APP_CHOOSER_WIDGET, OlAppChooserWidget)
+#define OL_APP_CHOOSER_WIDGET_CLASS(klass) \
+    GTK_CHECK_CLASS_CAST(klass, OL_TYPE_APP_CHOOSER_WIDGET, OlAppChooserWidgetClass)
+#define OL_IS_APP_CHOOSER_WIDGET(obj) \
+    G_TYPE_CHECK_INSTANCE_TYPE(obj, OL_TYPE_APP_CHOOSER_WIDGET)
+#define OL_APP_CHOOSER_WIDGET_GET_CLASS(obj)               \
+    (G_TYPE_INSTANCE_GET_CLASS((obj),                      \
+                               OL_TYPE_APP_CHOOSER_WIDGET, \
+                               OlAppChooserWidgetClass))
 
-GType ol_app_chooser_widget_get_type (void);
-GtkWidget *ol_app_chooser_widget_new (void);
+GType ol_app_chooser_widget_get_type(void);
+GtkWidget *ol_app_chooser_widget_new(void);
 
 /**
  * Sets the app infos to the app chooser.
@@ -67,9 +67,9 @@ GtkWidget *ol_app_chooser_widget_new (void);
  *                  number of columns will be calculated according to the number
  *                  of apps.
  */
-void ol_app_chooser_widget_set_app_list (OlAppChooserWidget *chooser,
-                                         GList *app_list,
-                                         guint n_columns);
+void ol_app_chooser_widget_set_app_list(OlAppChooserWidget *chooser,
+                                        GList *app_list,
+                                        guint n_columns);
 
 /**
  * Gets the number of columns of displayed apps.
@@ -79,5 +79,5 @@ void ol_app_chooser_widget_set_app_list (OlAppChooserWidget *chooser,
  *
  * @return
  */
-guint ol_app_chooser_widget_get_columns (OlAppChooserWidget *chooser);
+guint ol_app_chooser_widget_get_columns(OlAppChooserWidget *chooser);
 #endif /* _OL_APP_CHOOSER_WIDGET_H_ */
